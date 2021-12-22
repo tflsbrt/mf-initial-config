@@ -1,7 +1,0 @@
-{
-  "main.js": "autobundle.js",
-  "index.html": "autoindex.html",
-  "manifest.json": "automanifest.json",
-  "robots.txt": "autorobots.txt",
-  "bundle.js.map": "autobundle.js.map"
-}
