@@ -12,8 +12,11 @@ module.exports = () => {
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
     entry: path.resolve(__dirname, 'src', 'index.jsx'),
     output: {
-      path: path.resolve(__dirname, 'build'),
-      filename: 'bundle.js',
+      path: path.resolve('./build'),
+      filename: '[name].[contenthash].js',
+      publicPath: '/',
+      globalObject: 'this',
+      chunkLoadingGlobal: `webpackJsonp_sspahtmlwithjs`,
     },
     resolve: {
       extensions: ['.jsx', '.js'],
@@ -23,7 +26,6 @@ module.exports = () => {
       hot: true,
       host: '0.0.0.0',
       port: 5001,
-      https: true,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
@@ -38,6 +40,19 @@ module.exports = () => {
       }),
       new WebpackManifestPlugin({
         fileName: 'asset-manifest.json',
+        publicPath: '/',
+        generate: (seed, files, entrypoints) => {
+          const manifestFiles = files.reduce((manifest, file) => {
+            manifest[file.name] = file.path;
+            return manifest;
+          }, seed);
+          const chunks = ['main'];
+          const entrypointFiles = entrypoints[chunks];
+          return {
+            files: manifestFiles,
+            entrypoints: entrypointFiles,
+          };
+        },
       }),
       new CopyWebpackPlugin({
         patterns: [
