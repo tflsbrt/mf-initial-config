@@ -21,6 +21,9 @@ module.exports = () => {
       globalObject: 'this',
       chunkLoadingGlobal: `webpackJsonp_sspahtmlwithjs`,
     },
+    optimization: {
+      splitChunks: false,
+    },
     resolve: {
       extensions: ['.jsx', '.js'],
     },
@@ -62,10 +65,11 @@ module.exports = () => {
         ],
       }),
       new ModuleFederationPlugin({
-        // name: 'container',
-        // filename: 'remoteEntry.js',
+        name: 'container',
+        filename: 'remoteEntry.js',
         remotes: {
-          client: 'client@http://172.24.3.141:5003/remoteEntry.js',
+          client: 'client@https://leads-management-client.vercel.app/remoteEntry.js',
+          //client: 'client@http://172.24.15.136:5003/remoteEntry.js',
         },
         shared: [
           {
