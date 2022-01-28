@@ -2389,6 +2389,13 @@ extend@~3.0.2:
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
 
+external-remotes-plugin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/external-remotes-plugin/-/external-remotes-plugin-1.0.0.tgz#2ad8ecad6cba28f6e0fd7bccf8536aeda1297b20"
+  integrity sha512-19cfGfzmPMXkRNpyqOHgndNB07vjk1G1V7IuyixBw8Z1QTc/IOhINy9TbWzDRPTmj64e3STTI1MJE0gI58p7YA==
+  dependencies:
+    webpack-sources "^2.2.0"
+
 extsprintf@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
