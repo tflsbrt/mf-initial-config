@@ -17,7 +17,7 @@ module.exports = () => {
     output: {
       path: path.resolve('./build'),
       filename: '[name].[contenthash].js',
-      publicPath: '/',
+      publicPath: isDevelopment ? 'http://172.24.15.136:5001/' : 'https://mf-initial-config.vercel.app/',
       globalObject: 'this',
       chunkLoadingGlobal: `webpackJsonp_sspahtmlwithjs`,
     },
@@ -30,7 +30,6 @@ module.exports = () => {
     devServer: {
       static: path.resolve(__dirname, 'public'),
       hot: true,
-      host: '0.0.0.0',
       port: 5001,
       headers: {
         'Access-Control-Allow-Origin': '*',
